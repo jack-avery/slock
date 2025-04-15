@@ -164,8 +164,8 @@ draw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 	} else {
 		for (screen = 0; screen < nscreens; screen++) {
 			XSetWindowBackground(dpy,
-								 locks[screen]->win,
-								 locks[screen]->colors[color]);
+			                     locks[screen]->win,
+			                     locks[screen]->colors[color]);
 			XClearWindow(dpy, locks[screen]->win);
 		}
 	}

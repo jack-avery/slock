@@ -130,7 +130,7 @@ gethash(void)
 
 static void
 draw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
-	 unsigned int len, unsigned int color)
+     unsigned int len, unsigned int color)
 {
 	int screen, crtc;
 	XRRCrtcInfo* rrci;
@@ -197,10 +197,10 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 					ksym = (ksym - XK_KP_0) + XK_0;
 			}
 			if (IsFunctionKey(ksym) ||
-				IsKeypadKey(ksym) ||
-				IsMiscFunctionKey(ksym) ||
-				IsPFKey(ksym) ||
-				IsPrivateKeypadKey(ksym))
+			    IsKeypadKey(ksym) ||
+			    IsMiscFunctionKey(ksym) ||
+			    IsPFKey(ksym) ||
+			    IsPrivateKeypadKey(ksym))
 				continue;
 			switch (ksym) {
 			case XK_Return:
@@ -227,7 +227,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 				break;
 			default:
 				if (num && !iscntrl((int)buf[0]) &&
-					(len + num < sizeof(passwd))) {
+				    (len + num < sizeof(passwd))) {
 					memcpy(passwd + len, buf, num);
 					len += num;
 				}
@@ -240,7 +240,7 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 			for (screen = 0; screen < nscreens; screen++) {
 				if (locks[screen]->win == rre->window) {
 					if (rre->rotation == RR_Rotate_90 ||
-						rre->rotation == RR_Rotate_270)
+					    rre->rotation == RR_Rotate_270)
 						XResizeWindow(dpy, locks[screen]->win,
 						              rre->height, rre->width);
 					else

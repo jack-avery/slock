@@ -173,7 +173,7 @@ draw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 
 static void
 readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
-	   const char *hash)
+       const char *hash)
 {
 	XRRScreenChangeNotifyEvent *rre;
 	char buf[32], passwd[256], *inputhash;

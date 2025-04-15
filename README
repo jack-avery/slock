@@ -2,10 +2,22 @@ slock - simple screen locker
 ============================
 simple screen locker utility for X.
 
+This is custom, with the following changes:
+- the squares patch: https://tools.suckless.org/slock/patches/squares/
+- the user patch: https://tools.suckless.org/slock/patches/user/
+- a modification to show squares equal to the length of your current input
 
 Requirements
 ------------
-In order to build slock you need the Xlib header files.
+In order to build slock you need the following libs:
+- libcrypt
+- libX11
+- libXext
+- libXrandr
+
+This patched version also has xrandr as a runtime dependency.
+
+For Nix (and NixOS) users, the provided nix flake handles everything for you.
 
 
 Installation
@@ -17,6 +29,10 @@ Afterwards enter the following command to build and install slock
 (if necessary as root):
 
     make clean install
+
+For Nix (and NixOS) users, a nix flake is provided:
+
+    nix --experimental-features "flakes nix-command" build
 
 
 Running slock
